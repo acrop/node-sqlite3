@@ -2,7 +2,8 @@
   "includes": [ "deps/common-sqlite.gypi" ],
   "variables": {
       "sqlite%":"internal",
-      "sqlite_libname%":"sqlite3"
+      "sqlite_libname%":"sqlite3",
+      "module_name":"node_sqlite3"
   },
   "targets": [
     {
@@ -35,17 +36,6 @@
         "src/database.cc",
         "src/node_sqlite3.cc",
         "src/statement.cc"
-      ]
-    },
-    {
-      "target_name": "action_after_build",
-      "type": "none",
-      "dependencies": [ "<(module_name)" ],
-      "copies": [
-          {
-            "files": [ "<(PRODUCT_DIR)/<(module_name).node" ],
-            "destination": "<(module_path)"
-          }
       ]
     }
   ]
